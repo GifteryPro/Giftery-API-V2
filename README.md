@@ -1,0 +1,1 @@
+# Giftery-API-V2
