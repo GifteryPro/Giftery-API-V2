@@ -10,10 +10,10 @@ import java.time.format.DateTimeFormatter
 fun main() {
 
     val configuration = GifteryV2Configuration(
-        serverUrl = "http://localhost:8040",
-        login = "test-pos",
-        password = "test-pos",
-        secretKey = "Z5PZqjW0OR8GyRoowZ9URydyeXhq2LRclTtT6mIyCPM="
+        serverUrl = "https://api-stg.giftery.pro:7443",
+        login = "*******",
+        password = "*******",
+        secretKey = "*******"
     )
 
     val gifteryV2Connector = GifteryV2Connector(configuration)
@@ -61,11 +61,11 @@ fun main() {
     //Get products by id
     val productByIdResponse = gifteryV2Connector.getProductById(
         token = reAuth.data!!.accessToken,
-        productId = 2797,
+        productId = 1264,
         currency = "AED",
     )
     val productByIdData = productByIdResponse.data!!
-    println("Product #2797: ${productByIdData.name} ${productByIdData.fields}")
+    println("Product #${productByIdData.id}: ${productByIdData.name} ${productByIdData.fields}")
     productByIdData.items.forEach {
         println("\t$it")
     }
